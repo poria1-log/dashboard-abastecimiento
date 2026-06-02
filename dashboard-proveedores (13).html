@@ -286,7 +286,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',sans-serif
     </div>
   </div>
 
-  <div class="info-banner"><span id="info-banner-text">📂 &nbsp;Datos cargados desde <strong>Kikker</strong> · 6 departamentos · ENE–MAY 2025 y 2026</span></div>
+  <div class="info-banner"><span id="info-banner-text">🟢 &nbsp;Datos sincronizados desde <strong>Kikker</strong> · 6 departamentos · Última actualización: 02/06/2026 16:25<strong>Kikker</strong> · 6 departamentos · ENE–MAY 2025 y 2026</span></div>
 
   <div class="summary">
     <div class="sum-card">
@@ -353,7 +353,12 @@ let ACTIVE_MODE = '2026';
 const chartInstances = {};
 
 const PROVIDERS = [
-  { name:"Cuidado del Cabello", tag:"Mareque · Kikker", e26:[1818,1073,1192,1150,1464], v26:[1656,1368,1496,1151,1136], e25:[2026,1860,1536,2108,2078], v25:[2679,2107,2025,1872,1456] },
+  { name:"Cuidado Bucal", tag:"Masivos · Kikker", e26:[112302, 76578, 120863, 79407, 99148], v26:[93360, 84855, 102616, 76359, 93110], e25:[134143, 112482, 113552, 126784, 109077], v25:[109970, 107718, 114408, 101591, 55890] },
+  { name:"Cuidado de la Piel", tag:"Masivos · Kikker", e26:[158093, 79703, 106669, 88050, 102384], v26:[119986, 72607, 71614, 64480, 82461], e25:[205329, 129486, 82031, 142294, 136999], v25:[137085, 97129, 89747, 86441, 61170] },
+  { name:"Cuidado del Bebé y la Mamá", tag:"Masivos · Kikker", e26:[45070, 25458, 40334, 35782, 35207], v26:[30391, 25852, 35158, 27558, 27730], e25:[59408, 50477, 41000, 62966, 40648], v25:[40382, 40475, 45293, 39591, 23327] },
+  { name:"Cuidado del Cabello", tag:"Masivos · Kikker", e26:[168711, 111996, 142516, 128997, 125813], v26:[129636, 108282, 124763, 104043, 111453], e25:[227629, 192543, 179158, 217485, 196534], v25:[178456, 157502, 185739, 158734, 110471] },
+  { name:"Cuidado Personal", tag:"Masivos · Kikker", e26:[358788, 249579, 340462, 280249, 374029], v26:[312961, 240843, 292672, 249962, 286569], e25:[490022, 384444, 446976, 489286, 363067], v25:[381063, 355977, 431926, 374240, 197849] },
+  { name:"Limpieza y Hogar", tag:"Masivos · Kikker", e26:[62546, 51259, 56010, 68656, 65443], v26:[54375, 40489, 59137, 40974, 54491], e25:[125700, 102327, 140802, 121999, 101285], v25:[95371, 92707, 99608, 93681, 36753] },
 ];
 
 // ── KIKKER API SYNC ──────────────────────────────────────────────────────────
