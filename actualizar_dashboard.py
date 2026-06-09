@@ -27,7 +27,7 @@ if not GH_TOKEN:
 # ── CONFIGURACIÓN ─────────────────────────────────────────
 GITHUB_USER = "poria1-log"
 GITHUB_REPO = "dashboard-abastecimiento"
-GITHUB_FILE = "dashboard-proveedores (27).html"
+GITHUB_FILE = "dashboard-proveedores (28).html"
 
 TODOS_LOS_MESES = ["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SET","OCT","NOV","DIC"]
 MESES_ACTIVOS   = []
