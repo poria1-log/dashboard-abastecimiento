@@ -337,7 +337,7 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',sans-serif
     </div>
   </div>
 
-  <div class="info-banner"><span id="info-banner-text">🟢 &nbsp;Datos sincronizados desde <strong>Kikker</strong> · 19 departamentos · ENE–MAY 2025 y 2026</span></div>
+  <div class="info-banner"><span id="info-banner-text">🟢 &nbsp;Datos sincronizados desde <strong>Kikker</strong> · 30 departamentos · ENE–JUN 2026 · Última actualización: 09/06/2026 19:50<strong>Kikker</strong> · 19 departamentos · ENE–MAY 2025 y 2026</span></div>
 
   <div class="summary">
     <div class="sum-card">
@@ -408,41 +408,41 @@ body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',sans-serif
 </div>
 
 <script>
-const MESES = ['ENE','FEB','MAR','ABR','MAY'];
+const MESES = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN'];
 let ACTIVE_MODE = '2026';
 const chartInstances = {};
 
 const PROVIDERS = [
-  { name:"Cuidado Bucal",            family:"masivos",   tag:"Masivos · Kikker",   e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Cuidado de la Piel",       family:"masivos",   tag:"Masivos · Kikker",   e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Cuidado del Bebé y la Mamá", family:"masivos", tag:"Masivos · Kikker",   e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Cuidado del Cabello",      family:"masivos",   tag:"Masivos · Kikker",   e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Cuidado Personal",         family:"masivos",   tag:"Masivos · Kikker",   e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Limpieza y Hogar",         family:"masivos",   tag:"Masivos · Kikker",   e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Accesorios",               family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Electrosalud",             family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"In Vitro",                 family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Medicamentos",             family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Nutrición",                family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Parafarmacia",             family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Suplementos",              family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Venta Libre",              family:"eticos",    tag:"Éticos · Kikker",    e26:[0,0,0,0,0], v26:[0,0,0,0,0], e25:[0,0,0,0,0], v25:[0,0,0,0,0] },
-  { name:"Accesorios",               family:"selectivos", tag:"Selectivos · Kikker", e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Belleza Profesional",      family:"selectivos", tag:"Selectivos · Kikker", e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Cosmética",                family:"selectivos", tag:"Selectivos · Kikker", e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Dermocosmética",           family:"selectivos", tag:"Selectivos · Kikker", e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Fragancias",               family:"selectivos", tag:"Selectivos · Kikker", e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Almacén",                  family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Bazar",                    family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Bebidas",                  family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Comestibles",              family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Frescos",                  family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Galletitas",               family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Golosinas",                family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Hogar",                    family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Juguetería",               family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Lácteos",                  family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
-  { name:"Librería",                 family:"market",     tag:"Market · Kikker",     e26:[0,0,0,0,0,0], v26:[0,0,0,0,0,0], e25:[0,0,0,0,0,0], v25:[0,0,0,0,0,0] },
+  { name:"Cuidado Bucal", family:"masivos", tag:"Masivos · Kikker", e26:[112302, 76578, 120863, 79407, 99148, 27807], v26:[93360, 84855, 102616, 76359, 93110, 24324], e25:[134143, 112482, 113552, 126784, 109077, 86319], v25:[109970, 107718, 114408, 101591, 55890, 54984] },
+  { name:"Cuidado de la Piel", family:"masivos", tag:"Masivos · Kikker", e26:[158093, 79703, 106669, 88050, 102384, 28381], v26:[119986, 72607, 71614, 64480, 82461, 20652], e25:[205329, 129486, 82031, 142294, 136999, 94902], v25:[137085, 97129, 89747, 86441, 61170, 64677] },
+  { name:"Cuidado del Bebé y la Mamá", family:"masivos", tag:"Masivos · Kikker", e26:[45070, 25458, 40334, 35782, 35207, 5430], v26:[30391, 25852, 35158, 27558, 27730, 7009], e25:[59408, 50477, 41000, 62966, 40648, 30657], v25:[40382, 40475, 45293, 39591, 23327, 23362] },
+  { name:"Cuidado del Cabello", family:"masivos", tag:"Masivos · Kikker", e26:[168711, 111996, 142516, 128997, 125813, 23425], v26:[129636, 108282, 124763, 104043, 111453, 32675], e25:[227629, 192543, 179158, 217485, 196534, 152409], v25:[178456, 157502, 185739, 158734, 110471, 109339] },
+  { name:"Cuidado Personal", family:"masivos", tag:"Masivos · Kikker", e26:[358788, 249579, 340462, 280249, 374029, 71997], v26:[312961, 240843, 292672, 249962, 286569, 80079], e25:[490022, 384444, 446976, 489286, 363067, 316086], v25:[381063, 355977, 431926, 374240, 197849, 196752] },
+  { name:"Limpieza y Hogar", family:"masivos", tag:"Masivos · Kikker", e26:[62546, 51259, 56010, 68656, 65443, 14500], v26:[54375, 40489, 59137, 40974, 54491, 12508], e25:[125700, 102327, 140802, 121999, 101285, 77750], v25:[95371, 92707, 99608, 93681, 36753, 31605] },
+  { name:"Accesorios", family:"eticos", tag:"Éticos · Kikker", e26:[28545, 27124, 44765, 37255, 39327, 16360], v26:[27253, 22969, 28454, 27019, 30340, 8535], e25:[49004, 29191, 38723, 53348, 46159, 40063], v25:[25708, 24828, 27932, 28128, 20059, 20226] },
+  { name:"Electrosalud", family:"eticos", tag:"Éticos · Kikker", e26:[2357, 1558, 2299, 4116, 4193, 4292], v26:[1073, 997, 1318, 1466, 2808, 788], e25:[1662, 1627, 2825, 4517, 5005, 4123], v25:[1005, 1076, 1782, 1790, 1907, 2251] },
+  { name:"In Vitro", family:"eticos", tag:"Éticos · Kikker", e26:[13364, 10221, 11979, 14435, 14529, 927], v26:[8071, 6591, 6904, 6108, 6364, 1918], e25:[11781, 10050, 9251, 12633, 13512, 8375], v25:[8315, 7331, 7167, 6302, 4261, 3744] },
+  { name:"Medicamentos", family:"eticos", tag:"Éticos · Kikker", e26:[698763, 545613, 695813, 809858, 864546, 245131], v26:[523042, 430213, 502490, 515257, 543218, 144462], e25:[479991, 547036, 603223, 727087, 673905, 705897], v25:[475570, 478265, 514889, 516635, 428088, 422819] },
+  { name:"Nutrición", family:"eticos", tag:"Éticos · Kikker", e26:[24605, 14046, 21924, 19569, 20014, 3824], v26:[12268, 11025, 12324, 13513, 14794, 4812], e25:[31257, 19579, 24091, 26752, 17901, 16048], v25:[18073, 18734, 19243, 17548, 14475, 15302] },
+  { name:"Parafarmacia", family:"eticos", tag:"Éticos · Kikker", e26:[87018, 64818, 94770, 98359, 98908, 31257], v26:[57379, 46510, 50444, 48781, 57643, 14977], e25:[81586, 61757, 71292, 100268, 82317, 71867], v25:[49401, 46160, 52275, 47918, 35592, 36405] },
+  { name:"Suplementos", family:"eticos", tag:"Éticos · Kikker", e26:[43086, 37755, 58272, 65498, 66530, 12038], v26:[30068, 25737, 32161, 29348, 34391, 9697], e25:[36230, 39397, 36792, 71920, 49529, 50012], v25:[25342, 25887, 28696, 29394, 22764, 24113] },
+  { name:"Venta Libre", family:"eticos", tag:"Éticos · Kikker", e26:[214714, 242062, 361309, 362883, 383217, 95731], v26:[142707, 122771, 157144, 162859, 175865, 51527], e25:[188934, 178588, 198061, 290364, 238203, 269833], v25:[129966, 124865, 149392, 144272, 87925, 89387] },
+  { name:"Accesorios", family:"selectivos", tag:"Selectivos · Kikker", e26:[0, 0, 874, 669, 80, 64], v26:[10, 8, 11, 39, 51, 5], e25:[406, 379, 7, 11, 0, 0], v25:[21, 21, 54, 41, 0, 0] },
+  { name:"Belleza Profesional", family:"selectivos", tag:"Selectivos · Kikker", e26:[11, 4, 111, 10, 22, 175], v26:[54, 29, 44, 59, 43, 24], e25:[250, 9, -37, 198, 1202, 175], v25:[228, 200, 280, 297, 78, 411] },
+  { name:"Cosmética", family:"selectivos", tag:"Selectivos · Kikker", e26:[63891, 36826, 38620, 58330, 61802, 7770], v26:[14666, 13410, 16468, 14188, 18429, 4631], e25:[41305, 59778, 73960, 64923, 52149, 33671], v25:[16249, 16622, 18386, 18646, 17063, 17972] },
+  { name:"Dermocosmética", family:"selectivos", tag:"Selectivos · Kikker", e26:[28263, 17785, 19037, 28463, 26912, 6943], v26:[15382, 11269, 12092, 10527, 16087, 3716], e25:[29239, 27364, 18668, 36774, 31386, 29867], v25:[19145, 14119, 13092, 13583, 12615, 13872] },
+  { name:"Fragancias", family:"selectivos", tag:"Selectivos · Kikker", e26:[12271, 10941, 17046, 11586, 15281, 10314], v26:[3988, 4187, 4306, 4021, 6119, 1746], e25:[10178, 12263, 10752, 14384, 13418, 11794], v25:[4375, 4958, 5532, 5288, 4574, 5557] },
+  { name:"Almacén", family:"market", tag:"Market · Kikker", e26:[-5246, -6447, -8096, -10666, -8073, -3790], v26:[10835, 7735, 9532, 9468, 10158, 2657], e25:[-12856, -8164, -10767, -10733, -19960, -15235], v25:[17000, 17806, 20374, 18853, 13152, 12802] },
+  { name:"Bazar", family:"market", tag:"Market · Kikker", e26:[6463, 5520, 1320, 676, 5350, 205], v26:[2929, 2518, 2552, 1721, 1943, 533], e25:[29298, 27728, 8401, 5069, 5025, 386], v25:[6942, 8396, 7830, 6272, 2329, 2038] },
+  { name:"Bebidas", family:"market", tag:"Market · Kikker", e26:[-6701, -7165, -7801, -3229, -4136, -299], v26:[9331, 5756, 5771, 4565, 3942, 1114], e25:[-14035, -11571, -5596, -8519, -7579, -5546], v25:[17305, 20540, 16904, 9862, 7003, 6648] },
+  { name:"Comestibles", family:"market", tag:"Market · Kikker", e26:[-147, -4425, -20, -669, -2185, -103], v26:[275, 246, 276, 231, 370, 79], e25:[134, 2247, -1163, 246, 190, 382], v25:[169, 283, 331, 343, 354, 689] },
+  { name:"Frescos", family:"market", tag:"Market · Kikker", e26:[-1854, -1398, -1936, -1803, -1454, -373], v26:[2030, 1195, 1330, 1517, 1319, 299], e25:[-2159, -1612, -2199, -1953, -2175, -2997], v25:[2753, 2866, 2541, 2496, 1843, 1811] },
+  { name:"Galletitas", family:"market", tag:"Market · Kikker", e26:[-10028, -7703, -14238, -9883, -11461, -1556], v26:[14379, 10458, 13142, 11575, 11584, 3223], e25:[-22269, -24983, -15920, -22829, -29015, -17719], v25:[22377, 23343, 29270, 24540, 13951, 13190] },
+  { name:"Golosinas", family:"market", tag:"Market · Kikker", e26:[91794, 68647, 86685, 76979, 87337, 22092], v26:[127469, 101657, 131001, 115274, 121673, 30094], e25:[107125, 107379, 68911, 77872, 91565, 93226], v25:[137179, 144667, 164483, 154271, 85624, 80223] },
+  { name:"Hogar", family:"market", tag:"Market · Kikker", e26:[-220, -647, -94, -11, -96, -1], v26:[270, 219, 254, 297, 335, 88], e25:[-1343, -556, 182, -225, -750, -285], v25:[541, 559, 573, 600, 468, 415] },
+  { name:"Juguetería", family:"market", tag:"Market · Kikker", e26:[5, 7, 1, 2, 0, 0], v26:[19, 3, 9, 5, 10, 1], e25:[7, 268, 32, 14, 0, 0], v25:[38, 71, 59, 11, 0, 0] },
+  { name:"Lácteos", family:"market", tag:"Market · Kikker", e26:[-6548, -5057, -5102, -4381, -3844, -1454], v26:[6317, 3708, 4015, 3428, 3318, 876], e25:[-4390, -5253, -5932, -3317, -4376, -6240], v25:[7777, 6905, 6706, 5847, 4179, 4089] },
+  { name:"Librería", family:"market", tag:"Market · Kikker", e26:[-276, 2483, -58, 87, 49, -1], v26:[508, 841, 928, 386, 374, 116], e25:[8727, 8629, 1857, 31, 1928, 21], v25:[1789, 4056, 3391, 1402, 429, 385] },
 ];
 
 let ACTIVE_FAMILY = 'masivos';
